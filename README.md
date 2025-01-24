@@ -3,10 +3,13 @@ Obsidian (Markdown) to Html converter.
 
 This tool converts a subfolder of your obsidian vault to site ready html.
 
+Software is provided as is, the associated code is compiled to the executable.
+I've built it to scratch an itch. If it helps you in the same way. Awesome.
+
 
 # Calling:
 ```terminal
-obs2htmlgraal
+obs2html
   --title "This is my site title"
   -i="Source path"
   -o="Target path"
@@ -25,5 +28,5 @@ java -agentlib:native-image-agent=config-output-dir=src/main/resources/META-INF/
 ```
 Then run with:
 ```bash
-./build/native/nativeCompile/obs2htmlgraal.exe --title site -i=siteinput -o=site -t=template.html
+./build/native/nativeCompile/obs2html.exe --title site -i=siteinput -o=site -t=template.html
 ```
