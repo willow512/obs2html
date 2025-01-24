@@ -1,0 +1,47 @@
+plugins {
+    id 'application'
+    id 'org.graalvm.buildtools.native' version '0.10.4'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.22'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+application {
+    mainClass.set('willow.obs2html.MainKt')
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://repo1.maven.org/maven2/" //For general dependencies
+    }
+    maven {
+        url "https://repo.graalvm.org/maven/" // Add the GraalVM repository
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'org.apache.commons:commons-lang3:3.8.1'
+    implementation 'org.graalvm.sdk:nativeimage:23.1.2'
+    implementation 'info.picocli:picocli:4.7.6'
+
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.2")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
+    implementation("com.vladsch.flexmark:flexmark-all:0.64.8")
+}
+
+tasks.register('myZip', Zip) {
+    // Place all files from 'siteSrc/' into the 'site' subfolder in the zip
+    from('siteSrc/') {
+        into 'siteSrc' // Add everything from 'siteSrc' into the 'site' folder
+        include '*'
+        include '*/*'
+    }
+
+    // Include other files directly
+    from('build/native/nativeCompile') {
+        include 'obs2html.exe'
+    }
+
+    from('template.html')
+}

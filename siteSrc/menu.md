@@ -1,0 +1,3 @@
+- This is a menu
+- [[Site Index]]
+- [[Alt page]]

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #2C3E50;
+            color: #ECF0F1;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        nav {
+            width: 250px;
+            background-color: #34495E;
+            color: #ECF0F1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .content {
+            flex: 1;
+            padding: 2rem;
+            background-color: #273137;
+            overflow-y: auto;
+            color: aliceblue;
+        }
+
+        .content > h1 {
+            color: #7bdf5b;
+        }
+        .content > h2 {
+            color: #4e97ca;
+        }
+        .content > h3 {
+            color: #d69c61;
+        }
+        .content > h4 {
+            color: #8575d5;
+        }
+        a {
+            color: #caca6d;
+            text-decoration: none;
+        }
+        a:visited {
+            color: #caca6d;
+        }
+        a:hover {
+            color: #f1f191;
+        }
+        button:hover, nav ul li > button:focus {
+            background-color: #2C3E50;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: black;
+        }
+
+        th:nth-child(even) {
+            background-color: #b8b6b6; /* Alternate color for even headers */
+        }
+
+        tr:nth-child(even) {
+            background-color: #474747; /* Alternate row color for better readability */
+        }
+
+        tr:hover {
+            background-color: #656565; /* Highlight row on hover */
+        }
+
+        blockquote {
+            background-color: #404d57;
+        }
+    </style>
+</head>
+<body>
+<header>
+    {title}
+</header>
+<div class="container">
+    <nav>
+        {menu}
+    </nav>
+    <div class="content">
+        {content}
+    </div>
+</div>
+
+<script>
+    function toggleSubmenu(button) {
+        const submenu = button.nextElementSibling;
+        if (submenu) {
+            submenu.classList.toggle('show');
+        }
+    }
+</script>
+</body>
+</html>
