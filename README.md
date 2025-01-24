@@ -3,7 +3,7 @@ Obsidian (Markdown) to Html converter.
 
 This tool converts a subfolder of your obsidian vault to site ready html.
 
-Software is provided as is, the associated code is compiled to the executable.
+Software is bare bones and provided as is, the associated code is compiled to the executable.
 I've built it to scratch an itch. If it helps you in the same way. Awesome.
 
 
